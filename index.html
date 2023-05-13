@@ -11,6 +11,12 @@
         function welcome(){
             console.log('Welcome to the game of Paper, Rock and Scissors. Choose start to begin.')
         }
+        function getComputerChoice() {
+            const index = Math.floor(Math.random() * choice.length);
+            computerChoice = choice[index]
+            return computerChoice
+        }
+        const choice = ['Rock', 'Paper','Scissors']
         
     </script>
 </body>
