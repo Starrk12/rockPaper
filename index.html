@@ -28,9 +28,35 @@
             }
             return userChoice
         }
+        function getWinner() {
+            getUserChoice()
+            getComputerChoice()
+            if (userChoice == computerChoice){
+                console.log('Please repeat. You chose the same!')
+                getWinner()
+            }
+            else if (userChoice == choice[0] && computerChoice == choice[1] ){
+                console.log('Paper covers rock. You loose!')
+            }
+            else if (userChoice == choice[1] && computerChoice == choice[2]){
+                console.log('Scissors cut paper. You loose!')
+            }
+            else if (userChoice == choice[2] && computerChoice == choice[0]){
+                console.log('You loose, Rock crush scissors!')
+            }
+            else if (userChoice == choice[0] && computerChoice == choice[2]){
+                console.log('You win, Rock crush scissors!')
+            }
+            else if (userChoice == choice[1] && computerChoice == choice[0]){
+                console.log('You win, Paper covers Rock!')
+            }
+            else if (userChoice == choice[2] && computerChoice == choice[1]){
+                console.log('You win!, Scissors cuts paper!')
+            }
+        }
         const choice = ['Rock', 'Paper','Scissors']
-        getUserChoice()
-        getComputerChoice()
+        welcome()
+        getWinner()
         
         
     </script>
