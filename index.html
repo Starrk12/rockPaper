@@ -14,9 +14,24 @@
         function getComputerChoice() {
             const index = Math.floor(Math.random() * choice.length);
             computerChoice = choice[index]
+            console.log(`The computer has choosen ${computerChoice}`)
             return computerChoice
         }
+        function getUserChoice() {
+            userChoice = prompt('Please choose between Rock, Paper or Scissors')
+            if (choice.includes(userChoice)) {
+                console.log(`you have decided to choose ${userChoice}`)
+            }
+            else {
+                console.log('This is not in the option please choose again! Consider cases!')
+                getUserChoice()
+            }
+            return userChoice
+        }
         const choice = ['Rock', 'Paper','Scissors']
+        getUserChoice()
+        getComputerChoice()
+        
         
     </script>
 </body>
