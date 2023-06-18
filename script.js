@@ -56,10 +56,41 @@ function getComputerChoice() {
 const start = document.getElementById('start')
 
 start.addEventListener('click', () => {
-    getComputerChoice()
-    const choice1 = document.createElement('div')
+    const message = document.createElement('p');
 
-    choice1.textContent = `The computer has chosen ${computerChoice}`
-    choice1.style.color = 'Blue'
-    document.body.append(choice1)
-} )
+    message.textContent = 'The game is the Classic Rock, Paper and Scissors. You simply have to pick one of the choices given below;';
+
+    const container = document.createElement('div')
+    const rock = document.createElement('button');
+    const paper = document.createElement('button');
+    const scissors = document.createElement('button');
+
+    rock.textContent = 'Rock';
+    rock.setAttribute('style', 'color: red');
+
+    paper.textContent = 'Paper';
+    paper.setAttribute('stye', 'color: white', 'backgroundColor: black');
+
+    scissors.textContent = 'Scissors';
+    scissors.setAttribute('style', 'color: grey', 'backgroundColor: yellow');
+
+    container.append(rock, paper, scissors)
+    document.body.append(container)
+} );
+
+
+
+
+
+
+
+
+// getComputerChoice()
+
+
+// const choice1 = document.createElement('div')
+
+
+// choice1.textContent = `The computer has chosen ${computerChoice}`
+// choice1.style.color = 'Blue'
+// document.body.append('Your turn; Please choose.',rock, paper,scissors, choice1)
