@@ -1,82 +1,145 @@
 const choice = ['Rock', 'Paper', 'Scissors']
+let rock;
+let paper;
+let scissors;
+let userChoice;
+let loose;
+let win;
 
-function getComputerChoice() {
-    const index = Math.floor(Math.random() * choice.length);
-    computerChoice = choice[index]
+function introduction() {
     
+    const message = document.createElement('h2')
 
-    return computerChoice
-}
-// function getUserChoice() {
-//     userChoice = prompt('Please choose between Rock, Paper or Scissors')
-//     if (choice.includes(userChoice)) {
-//         console.log(`you have decided to choose ${userChoice}`)
-//     }
-//     else {
-//         console.log('This is not in the option please choose again! Consider cases!')
-//         getUserChoice()
-//     }
-//     return userChoice
-// }
-// function getWinner() {
-//     getUserChoice()
-//     getComputerChoice()
-//     if (userChoice == computerChoice){
-//         console.log('Please repeat. You chose the same!')
-//         getWinner()
-//     }
-//     else if (userChoice == choice[0] && computerChoice == choice[1] ){
-//         console.log('Paper covers rock. You loose!')
-//     }
-//     else if (userChoice == choice[1] && computerChoice == choice[2]){
-//         console.log('Scissors cut paper. You loose!')
-//     }
-//     else if (userChoice == choice[2] && computerChoice == choice[0]){
-//         console.log('You loose, Rock crush scissors!')
-//     }
-//     else if (userChoice == choice[0] && computerChoice == choice[2]){
-//         console.log('You win, Rock crush scissors!')
-//     }
-//     else if (userChoice == choice[1] && computerChoice == choice[0]){
-//         console.log('You win, Paper covers Rock!')
-//     }
-//     else if (userChoice == choice[2] && computerChoice == choice[1]){
-//         console.log('You win!, Scissors cuts paper!')
-//     }
-// }
+    message.textContent = 'The game is the Classic Rock, Paper and Scissors. You simply have to pick one of the choices given below and the computer will also pick one;';
+    message.style.color = 'pink'
 
-// function theme() {
-//     const rock = document.createElement('button')
-    
-//     document.body.appendChild(rock)
-//     rock.setAttribute('name', 'ROCK')
-
-// }
-
-const start = document.getElementById('start')
-
-start.addEventListener('click', () => {
-    const message = document.createElement('p');
-
-    message.textContent = 'The game is the Classic Rock, Paper and Scissors. You simply have to pick one of the choices given below;';
+    document.body.append(message)
 
     const container = document.createElement('div')
     const rock = document.createElement('button');
     const paper = document.createElement('button');
     const scissors = document.createElement('button');
 
+     
     rock.textContent = 'Rock';
     rock.setAttribute('style', 'color: red');
+    rock.addEventListener('click', () => {
+        let userChoice = choice[0]
+        getWinner(choice[0])
+
+    })
 
     paper.textContent = 'Paper';
     paper.setAttribute('stye', 'color: white', 'backgroundColor: black');
+    paper.addEventListener('click', () => {
+        let userChoice = choice[1]
+        getWinner(choice[1])
+        
+    })
 
     scissors.textContent = 'Scissors';
     scissors.setAttribute('style', 'color: grey', 'backgroundColor: yellow');
+    scissors.addEventListener('click', () => {
+        let userChoice = choice[2]
+        getWinner(choice[2])
+    })
 
-    container.append(rock, paper, scissors)
-    document.body.append(container)
-} );
+    container.append(rock, paper, scissors);
+    document.body.append(container);
+
+}
+
+
+function getComputerChoice() {
+    const index = Math.floor(Math.random() * choice.length);
+    computerChoice = choice[index]
+
+    const compChoice = document.createElement('p')
+    if (computerChoice === choice[0]) {
+        const compRock = document.createElement('p')
+
+        compRock.textContent = 'The Computer Picked Rock'
+        compRock.style.color = 'blue'
+        
+        document.body.append(compRock)
+    }
+    else if(compChoice === choice[1]) {
+        const compPaper = document.createElement('p')
+
+        compPaper.textContent = 'The computer has picked Paper'
+        compPaper.style.color = 'blue'
+
+        document.body.append(compPaper)
+    }
+    else {
+        const compScissors = document.createElement('p')
+
+        compScissors.textContent = 'The computer has picked Scissors'
+        compScissors.style.color = 'blue'
+
+        document.body.append(compScissors)
+    }
+
+    return computerChoice
+}
+    
+
+function getWinner(userChoice) {
+    getComputerChoice()
+    
+
+    if (userChoice == computerChoice){
+        const draw = document.createElement('p')
+        draw.textContent = 'Please have another choice. You choose the same!'
+
+        document.body.append(draw)
+        
+        introduction()
+    }
+    else if (userChoice == choice[0] && computerChoice == choice[1] ){
+        const loose = document.createElement('p')
+
+        loose.textContent = 'Paper covers rock. You loose!'
+        document.body.append(loose)
+    }
+    else if (userChoice == choice[1] && computerChoice == choice[2]){
+        const loose = document.createElement('p')
+
+        loose.textContent = 'Scissors cut paper. You loose!'
+        document.body.append(loose)
+    }
+    else if (userChoice == choice[2] && computerChoice == choice[0]){
+        const loose = document.createElement('p')
+
+        loose.textContent = 'You loose! Rock crush scissors'
+        document.body.append(loose)
+    }
+    else if (userChoice == choice[0] && computerChoice == choice[2]){
+        const win = document.createElement('p')
+
+        win.textContent = 'You win, Rock crush scissors!'
+        document.body.append(win)
+    }
+    else if (userChoice == choice[1] && computerChoice == choice[0]){
+        const win = document.createElement('p')
+
+        win.textContent = 'You win, Paper covers Rock!'
+        document.body.append(win)
+    }
+    else if (userChoice == choice[2] && computerChoice == choice[1]){
+        const win = document.createElement('p')
+
+        win.textContent = 'You win!, Scissors cuts paper!'
+        document.body.append(win)
+    }
+    introduction()
+}
+
+
+const start = document.getElementById('start')
+
+start.addEventListener('click', introduction);
+
 
 
 
