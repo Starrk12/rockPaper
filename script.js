@@ -101,38 +101,54 @@ function getWinner(userChoice) {
 
         loose.textContent = 'Paper covers rock. You loose!'
         document.body.append(loose)
+        replayGame()
     }
     else if (userChoice == choice[1] && computerChoice == choice[2]){
         const loose = document.createElement('p')
 
         loose.textContent = 'Scissors cut paper. You loose!'
         document.body.append(loose)
+        replayGame()
     }
     else if (userChoice == choice[2] && computerChoice == choice[0]){
         const loose = document.createElement('p')
 
         loose.textContent = 'You loose! Rock crush scissors'
         document.body.append(loose)
+        replayGame()
     }
     else if (userChoice == choice[0] && computerChoice == choice[2]){
         const win = document.createElement('p')
 
         win.textContent = 'You win, Rock crush scissors!'
         document.body.append(win)
+        replayGame()
     }
     else if (userChoice == choice[1] && computerChoice == choice[0]){
         const win = document.createElement('p')
 
         win.textContent = 'You win, Paper covers Rock!'
         document.body.append(win)
+        replayGame()
     }
     else if (userChoice == choice[2] && computerChoice == choice[1]){
         const win = document.createElement('p')
 
         win.textContent = 'You win!, Scissors cuts paper!'
         document.body.append(win)
+        replayGame()
     }
-    introduction()
+    
+}
+function replayGame() {
+    const replay = document.createElement('button')
+
+    replay.textContent = 'REPLAY'
+    replay.style.color = 'red'
+
+    replay.addEventListener('click', introduction)
+    document.body.append(replay)
+
 }
 
 
