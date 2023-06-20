@@ -15,6 +15,8 @@ function introduction() {
 
     document.body.append(message)
 
+}
+function playRound() {
     const container = document.createElement('div')
     const rock = document.createElement('button');
     const paper = document.createElement('button');
