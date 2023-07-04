@@ -157,6 +157,7 @@ function replayGame() {
 const start = document.getElementById('start')
 
 start.addEventListener('click', introduction);
+start.addEventListener('click', playRound)
 
 
 
