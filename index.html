@@ -1,20 +1,87 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Pop culture recipes!</title>
-    </head>
-    <body>
-        <h1 id='header'>Recipes from pop culture!</h1>
-        <img src='images/chef-boyardee.jpg' alt='a talented chef by the name of boyardee' style="width:800px;height:450px;">
-        <h3 id='image label'>A collection of recipes from pop culture!</h3>
-        <div>
-            <ul>
-                <li><a href='./recipes/milk-steak.html'>Milk steak</a></li>
-                <li><a href="./recipes/gargle-blaster.html">Pan galactic gargle blaster</a></li>
-                <li><a href="./recipes/piemonade.html">Piemonade</a></li>
-            </ul>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container n-result">
+        <div class="pushable">
+            <a href="#" class="start btn">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Start
+            </a>
         </div>
-        <a href="#header">Return to top</a>
-    </body>
+    </div>
+
+    <div class="container-2 displaynone n-result">
+        <div class="computerOptions">
+            <div class="computerChoose">Computer Choose -><span class="Choose"></span></div>
+            <div class="imgContainer">
+            <img class ="computerImg gestureAnimation" src="images/rock.png" alt="">
+            </div>
+            <div class="cOption">
+                Ready to Start
+            </div>
+        </div>
+        <div class="userOptions">
+            <div class="pushable">
+                <a href="#" class="btn" id="rock">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Rock
+                </a>
+            </div>
+            <div class="pushable">
+                <a href="#" class="btn" id="paper">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Paper
+                </a>
+            </div>
+            <div class="pushable">
+                <a href="#" class="btn" id="scissor">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Scissor
+                </a>
+            </div>
+        </div>
+
+        <div class="pointsTable n-result">
+            <div class="phead">Points</div>
+            <div class="pcomputer pointsTableInner">
+                <div class="headingsUC">Computer</div>
+                <span class="score" id="computerScore">0</span>
+            </div>
+            <div class="puser pointsTableInner">
+                <div class="headingsUC">Your</div>
+                <span class="score" id="userScore">0</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="uwin displaynone winlos">
+        <img src="images/usrWin.png" alt="" srcset="">
+        <span>You Won!</span>
+    </div>
+    
+    <div class="cwin displaynone winlos">
+        <img src="images/pcWin.png" alt="" srcset="">
+        <span>You Lost!</span>
+    </div>
+</body>
 </html>
