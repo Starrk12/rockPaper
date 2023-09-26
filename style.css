@@ -1,0 +1,379 @@
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #212121;
+    font-family: 'Play', sans-serif;
+}
+.displaynone{
+    display: none !important;
+}
+.container{
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #212121;
+    outline-offset: 4px;
+    font-family: 'Play', sans-serif;
+  
+}
+.pushable{
+    border: none;
+    padding: 0;
+    outline-offset: 4px;
+    background-color: #323232;
+    border-radius: 5.5px;
+
+}
+.btn{
+    position: relative;
+    display: inline-block;
+    background-color: #4b4b4b;
+    padding: 2vw 2vh;
+    margin: 0px 0;
+    font-size: 3vw;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #14FFEC;
+    transition: 0.5s;
+    letter-spacing: 0.5vw;
+    overflow: hidden;
+    transform: translateY(-6px);
+    border-radius: 0.5vw;
+    cursor: pointer;
+    width: 20vw;
+    text-align: center;
+}
+
+.btn:hover{
+    opacity: 1;
+    background-color:#14FFEC;
+    color: #0D7377;
+    box-shadow: 0 0 1vw #14FFEC,
+    0 0 5vw #14FFEC,
+    0 0 10vw #14FFEC,
+    0 0 25vw #14FFEC;
+    -webkit-box-reflect: below 0.01vw linear-gradient(transparent,rgba(36, 36, 36, 0.151));
+}
+.pushable:active .btn{
+    transform: translateY(-1px);
+}
+.btn span{
+    position: absolute;
+    display: block;
+}
+.btn span:nth-child(1){
+    top:0;
+    left:-100%;
+    width: 100%;
+    height: 0.2vw;
+    background: linear-gradient(90deg,transparent,#14FFEC);
+    animation: animate1 1s linear infinite;
+    animation-delay: 0.25s;
+
+}
+.btn span:nth-child(2){
+    top:-100%;
+    right:0%;
+    width: 0.2vw;
+    height: 100%;
+    background: linear-gradient(180deg,transparent,#14FFEC);
+    animation: animate2 1s linear infinite;
+    animation-delay: 0.5s;
+
+}
+.btn span:nth-child(3){
+    bottom:0%;
+    right:-100%;
+    width: 100%;
+    height: 0.2vw;
+    background: linear-gradient(270deg,transparent,#14FFEC);
+    animation: animate3 1s linear infinite;
+    animation-delay: 0.75s;
+
+}
+.btn span:nth-child(4){
+    bottom: -100%;
+    left:0%;
+    width: 0.2vw;
+    height: 100%;
+    background: linear-gradient(360deg,transparent,#14FFEC);
+    animation: animate4 1s linear infinite;
+    animation-delay: 1s;
+
+}
+@keyframes animate1 {
+    0%{
+        left: -100%;
+    }
+    50%,100%{
+        left:100% ;
+    }
+}
+@keyframes animate2 {
+    0%{
+        top: -100%;
+    }
+    50%,100%{
+        top:100% ;
+    }
+}
+@keyframes animate3 {
+    0%{
+        right:-100%;
+    }
+    50%,100%{
+        right:100% ;
+    }
+}
+@keyframes animate4 {
+    0%{
+        bottom:-100%;
+    }
+    50%,100%{
+        bottom:100% ;
+    }
+}
+.remove{
+    animation: removeanimate 1s linear;
+}
+@keyframes removeanimate {
+    0%{
+        filter: brightness(200%);
+        box-shadow: 0 0 15rem #14FFEC,
+        0 0 50rem #14FFEC,
+        0 0 100rem #14FFEC,
+        0 0 250rem #14FFEC;
+    }
+    50%{
+        filter: brightness(4000%);
+        box-shadow: 0 0 15rem #14FFEC,
+        0 0 100rem #36d1c7,
+        0 0 400rem #38e0d2,
+        0 0 650rem #61faed,
+        0 0 650rem #e3f5f3,
+        0 0 650rem #e2f8f6;
+    }
+    100%{
+        filter: brightness(0%);
+        opacity: 0;
+    }
+}
+.add{
+    animation: addanimate 1s linear;
+}
+@keyframes addanimate {
+    0%{
+        filter: brightness(0%);
+        opacity: 0;
+        box-shadow: 0 0 15rem #14FFEC,
+        0 0 50rem #14FFEC,
+        0 0 100rem #14FFEC,
+        0 0 250rem #14FFEC;
+    }
+    50%{
+        filter: brightness(4000%);
+        box-shadow: 0 0 15rem #14FFEC,
+        0 0 100rem #36d1c7,
+        0 0 400rem #38e0d2,
+        0 0 650rem #61faed,
+        0 0 650rem #e3f5f3,
+        0 0 650rem #e2f8f6;
+    }
+    100%{
+        filter: brightness(100%);
+        opacity: 1;
+    }
+}
+
+
+.container-2{
+    display: grid;
+    grid-template-areas:'computer user'
+                        'points points';
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+
+}
+.computerOptions{
+    grid-area: computer;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: 3vw;
+    color: #14FFEC;
+    gap:3vh;
+    height:70vh;
+    
+} 
+
+.computerChoose{
+    z-index:999 ;
+    height: 30%;  
+}
+.imgContainer{
+    height: 70%;
+}       
+.imgContainer img{
+    width: 25vw;   
+}   
+.gestureAnimation{
+    animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
+    animation-duration: 2.5s;        /* Change to speed up or slow down */
+    animation-iteration-count: infinite;  /* Never stop waving :) */
+    transform-origin: 0% 50%;
+}
+.cOption{
+    font-size: 2vw;
+    color: #14FFEC;
+    z-index: 999;
+    text-align: center;
+}
+
+@keyframes wave-animation {
+    0% { transform: rotate( 0.0deg) }
+   10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+   20% { transform: rotate(-8.0deg) }
+   30% { transform: rotate(14.0deg) }
+   40% { transform: rotate(-4.0deg) }
+   50% { transform: rotate(10.0deg) }
+   60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+  100% { transform: rotate( 0.0deg) }
+}            
+.userOptions{
+    grid-area: user;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    justify-content: center;
+    align-items: center;
+    outline-offset: 0.4vw;
+    font-family: 'Play', sans-serif;
+    width: 50vw;
+
+}
+.pointsTable{
+    grid-area: points;
+    display: grid;
+    grid-template-areas:'pointT pointT pointC pointU'
+                        'pointT pointT pointC pointU';
+    align-items: center;
+    justify-content: space-evenly;
+    color: #e2f8f6;
+    width: 100vw;
+    font-size: 3vw;
+    border: white 0.2vw solid;
+    text-align: center;
+    z-index: 999;
+}
+.pointsTableInner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right:white 0.2vw solid;
+}
+.phead{
+    grid-area: pointT;
+    border-right:white 0.2vw solid;
+    border-collapse: collapse;
+    width: 40vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pcomputer{
+    grid-area: pointC;
+    width: 30vw;
+}
+.puser{
+    grid-area: pointU;
+    width: 30vw;
+}
+.score{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 10vh;
+}
+.headingsUC{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom:white 0.2vw solid;
+    width:100%; 
+    height:10vh;
+}
+.winlos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3vh;
+    font-size: 6vw;
+    color: #14FFEC;
+    width: 100vw;
+
+}
+@media screen and (max-width: 480px){
+    .computerChoose{
+        font-size: 4vw;
+    }
+    .cOption{
+        font-size: 4vw;
+        color: #14FFEC;
+    }
+    .btn{
+        font-size: 10vw;
+        width: 50vw;
+    }
+    .pointsTable{
+        font-size: 5vw;
+    }
+    .computerOptions{
+        width: 40vw;
+        height: 50vh;
+
+    }
+    .computerOptions img{
+        width: 40vw;
+    } 
+    .headingsUC{
+        height:5vh;
+    } 
+   
+    .score{
+        height: 5vh;
+    }
+    .winlos img{
+        width: 100vw;
+    }
+    .btn:hover{
+        opacity: 1;
+        background-color:#4b4b4b;
+        color: #14FFEC;
+        box-shadow: none;
+        animation: mobileanimation 1s ease-out;
+    }
+    @keyframes mobileanimation {
+        0%{
+           
+        }
+        50%{
+            box-shadow: 0 0 1vw #14FFEC,
+            0 0 5vw #14FFEC,
+            0 0 10vw #14FFEC,
+            0 0 25vw #14FFEC;
+            -webkit-box-reflect: below 0.01vw linear-gradient(transparent,rgba(36, 36, 36, 0.151));
+        }
+        100%{
+            background-color:#4b4b4b;
+        }
+    }
+}
